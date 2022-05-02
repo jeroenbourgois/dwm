@@ -1,22 +1,27 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int snap      = 32;       /* snap pixel */
-static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
-static const int user_bh            = 0;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const char *fonts[]          = { "JetBrainsMono Nerd Font Mono:size=10" };
-static const char dmenufont[]       = "JetBrainsMono Nerd Font Mono:size=10";
-static const char col_white[]       = "#ffffff";
-static const char col_gray1[]       = "#222222";	//222222 - default //black
-static const char col_gray2[]       = "#444444";	//444444 - default //light-gray
-static const char col_gray3[]       = "#e8f6f7";	//bbbbbb - default //light-blue
-static const char col_gray4[]       = "#302a36";	//eeeeee - default //gray
-static const char col_black[]       = "#000000";	//eeeeee - default //gray
-static const char col_blue_bright[] = "#2F2FFF";	//005577 - default //cyan
-static const char col_blue_dark[]   = "#070728";
-static const char *colors[][3]      = { /*               fg         bg         border   */
+static const unsigned int borderpx        = 1;        /* border pixel of windows */
+static const unsigned int snap            = 32;       /* snap pixel */
+static const unsigned int systraypinning  = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
+static const unsigned int systrayonleft   = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
+static const unsigned int systrayspacing  = 2;   /* systray spacing */
+static const int systraypinningfailfirst  = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
+static const int showsystray              = 1;     /* 0 means no systray */
+static const int showbar                  = 1;     /* 0 means no bar */
+static const int topbar                   = 1;     /* 0 means bottom bar */
+static const int user_bh                  = 0;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
+static const char *fonts[]                = { "JetBrainsMono Nerd Font Mono:size=10" };
+static const char dmenufont[]             = "JetBrainsMono Nerd Font Mono:size=10";
+static const char col_white[]             = "#ffffff";
+static const char col_gray1[]             = "#222222";	//222222 - default //black
+static const char col_gray2[]             = "#444444";	//444444 - default //light-gray
+static const char col_gray3[]             = "#e8f6f7";	//bbbbbb - default //light-blue
+static const char col_gray4[]             = "#302a36";	//eeeeee - default //gray
+static const char col_black[]             = "#000000";	//eeeeee - default //gray
+static const char col_blue_bright[]       = "#2F2FFF";	//005577 - default //cyan
+static const char col_blue_dark[]         = "#070728";
+static const char *colors[][3]            = { /*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_white, col_black,  col_blue_bright  },
 };
@@ -105,8 +110,10 @@ static Key keys[] = {
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */
-	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
-	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
+	/* { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
+	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} }, */
+	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
+  { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
