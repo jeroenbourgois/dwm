@@ -38,8 +38,8 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     switchtotag    iscentered  isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            0,             0,          1,           -1 },
-	{ "Spotify",  NULL,       NULL,       1 << 6,       0,             1,          1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,             0,          0,           -1 },
+	{ "Spotify",  NULL,       NULL,       1 << 6,       1,             1,          1,           -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 8,       1,             0,          0,           -1 },
 };
 
 /* layout(s) */
@@ -96,6 +96,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
+	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

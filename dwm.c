@@ -189,7 +189,7 @@ static Monitor *createmon(void);
 static void destroynotify(XEvent *e);
 static void detach(Client *c);
 static void detachstack(Client *c);
-// static Monitor *dirtomon(int dir);
+static Monitor *dirtomon(int dir);
 static void drawbar(Monitor *m);
 static void drawbars(void);
 static int drawstatusbar(Monitor *m, int bh, int stw, char* text);
@@ -197,7 +197,7 @@ static void enternotify(XEvent *e);
 static void expose(XEvent *e);
 static void focus(Client *c);
 static void focusin(XEvent *e);
-// static void focusmon(const Arg *arg);
+static void focusmon(const Arg *arg);
 static void focusstack(const Arg *arg);
 static Atom getatomprop(Client *c, Atom prop);
 static int getrootptr(int *x, int *y);
@@ -243,7 +243,7 @@ static void sigchld(int unused);
 static void spawn(const Arg *arg);
 static Monitor *systraytomon(Monitor *m);
 static void tag(const Arg *arg);
-// static void tagmon(const Arg *arg);
+static void tagmon(const Arg *arg);
 static void tile(Monitor *);
 static void togglebar(const Arg *arg);
 static void togglefloating(const Arg *arg);
@@ -833,7 +833,7 @@ detachstack(Client *c)
 	}
 }
 
-/* Monitor *
+Monitor *
 dirtomon(int dir)
 {
 	Monitor *m = NULL;
@@ -846,7 +846,7 @@ dirtomon(int dir)
 	else
 		for (m = mons; m->next != selmon; m = m->next);
 	return m;
-} */
+}
 
 int
 drawstatusbar(Monitor *m, int bh, int stw, char* stext) {
@@ -1089,7 +1089,7 @@ focusin(XEvent *e)
 		setfocus(selmon->sel);
 }
 
-/* void
+void
 focusmon(const Arg *arg)
 {
 	Monitor *m;
@@ -1101,7 +1101,7 @@ focusmon(const Arg *arg)
 	unfocus(selmon->sel, 0);
 	selmon = m;
 	focus(NULL);
-} */
+}
 
 void
 focusstack(const Arg *arg)
@@ -2039,13 +2039,13 @@ tag(const Arg *arg)
 	}
 }
 
-/* void
+void
 tagmon(const Arg *arg)
 {
 	if (!selmon->sel || !mons->next)
 		return;
 	sendmon(selmon->sel, dirtomon(arg->i));
-} */
+}
 
 void
 tile(Monitor *m)
