@@ -37,9 +37,11 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     switchtotag    iscentered  isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            0,             0,          1,           -1 },
-	{ "Spotify",  NULL,       NULL,       1 << 6,       1,             1,          1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       1,             0,          0,           -1 },
+	{ "Gimp",       NULL,       NULL,       0,            0,             0,          1,           -1 },
+	{ "Spotify",    NULL,       NULL,       1 << 8,       1,             1,          0,           -1 },
+	{ "firefox",    NULL,       NULL,       1 << 1,       1,             0,          0,           -1 },
+	{ "Slack",      NULL,       NULL,       1 << 2,       1,             0,          0,           -1 },
+	{ "Slack call", NULL,       NULL,       0,            0,             1,          1,           -1 },
 };
 
 /* layout(s) */
