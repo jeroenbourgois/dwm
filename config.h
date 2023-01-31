@@ -29,19 +29,20 @@ static const char *colors[][3]            =
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; 
 
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     switchtotag    iscentered  isfloating   monitor */
-	{ "Gimp",       NULL,       NULL,       0,            0,             0,          1,           -1 },
-	{ "Spotify",    NULL,       NULL,       1 << 8,       1,             1,          0,           -1 },
-	{ "firefox",    NULL,       NULL,       1 << 1,       1,             0,          0,           -1 },
-	{ "Slack",      NULL,       NULL,       1 << 2,       1,             0,          0,           -1 },
-	{ "Slack call", NULL,       NULL,       0,            0,             1,          1,           -1 },
+	/* class      instance    title         tags mask     switchtotag    iscentered  isfloating   monitor */
+	{ "Gimp",     NULL,       NULL,         0,            0,             0,          1,           -1 },
+	{ "Android",  NULL,       NULL,         0,            0,             0,          1,           -1 },
+	{ "Spotify",  NULL,       NULL,         1 << 8,       1,             1,          0,           -1 },
+	{ "firefox",  NULL,       NULL,         1 << 1,       1,             0,          0,           -1 },
+	{ "Slack",    NULL,       "chat",       1 << 2,       0,             0,          0,           -1 },
+	{ "Slack",    NULL,       "mini panel", 0,            0,             1,          1,           -1 },
 };
 
 /* layout(s) */
@@ -71,7 +72,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_blue_bright, "-sf", col_black, NULL };
-static const char *termcmd[]  = { "kitty", "--single-instance" };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 #include "movestack.c"
 
