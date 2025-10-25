@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx        = 1;        /* border pixel of windows */
+static const unsigned int borderpx        = 2;        /* border pixel of windows */
 static const unsigned int snap            = 32;       /* snap pixel */
 static const unsigned int systraypinning  = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft   = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
@@ -21,11 +21,12 @@ static const char col_gray4[]             = "#302a36";	//eeeeee - default //gray
 static const char col_black[]             = "#000000";	//eeeeee - default //gray
 static const char col_blue_bright[]       = "#2F2FFF";	//005577 - default //cyan
 static const char col_green_bright[]      = "#00ff33";	//005577 - default //cyan
+static const char col_purple_bright[]     = "#7C3AED";	
 static const char col_blue_dark[]         = "#070728";
 static const char *colors[][3]            = 
   { /*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_white, col_blue_bright,  col_green_bright  },
+	[SchemeSel]  = { col_white, col_blue_bright,  col_purple_bright  },
 };
 
 /* tagging */
@@ -83,8 +84,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	// { MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+	// { MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
