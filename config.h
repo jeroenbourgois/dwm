@@ -40,14 +40,14 @@ static const Rule rules[] = {
 	/* class      instance    title         tags mask     switchtotag    iscentered  isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,         0,            0,             0,          1,           -1 },
 	{ "Android",  NULL,       NULL,         0,            0,             0,          1,           -1 },
-	{ "Spotify",  NULL,       NULL,         1 << 8,       1,             1,          0,           -1 },
+	{ "Spotify",  NULL,       NULL,         1 << 8,       1,             1,          1,           -1 },
 	{ "firefox",  NULL,       NULL,         1 << 1,       1,             0,          0,           -1 },
 	{ "Slack",    NULL,       "chat",       1 << 2,       0,             0,          0,           -1 },
 	{ "Slack",    NULL,       "mini panel", 0,            0,             1,          1,           -1 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.60; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
@@ -73,7 +73,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_blue_bright, "-sf", col_black, NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "alacritty-cwd", NULL };
 
 #include "movestack.c"
 
